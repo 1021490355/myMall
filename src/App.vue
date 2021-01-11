@@ -1,26 +1,50 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div id="app">
+      <router-view></router-view>
+        <tab-bar>
+          <tab-bar-item link="/home">
+            <template v-slot:item-icon><img class="item-icon" src="./assets/images/tabbar/home.svg" alt=""></template>
+            <template v-slot:item-icon-active><img class="item-icon" src="./assets/images/tabbar/home_active.svg" alt=""></template>
+            <template v-slot:item-text><div class="item-text">主页</div></template>
+          </tab-bar-item>
+          <tab-bar-item  link="/category">
+            <template v-slot:item-icon><img class="item-icon" src="./assets/images/tabbar/category.svg" alt=""></template>
+            <template v-slot:item-icon-active><img class="item-icon" src="./assets/images/tabbar/category_active.svg" alt=""></template>
+            <template v-slot:item-text><div class="item-text">菜单</div></template>
+          </tab-bar-item>
+          <tab-bar-item link="/cart">
+            <template v-slot:item-icon><img class="item-icon" src="./assets/images/tabbar/shopcart.svg" alt=""></template>
+            <template v-slot:item-icon-active><img class="item-icon" src="./assets/images/tabbar/shopcart_active.svg" alt=""></template>
+            <template v-slot:item-text><div class="item-text">我的</div></template>
+          </tab-bar-item>
+          <tab-bar-item link="/profile">
+            <template v-slot:item-icon><img class="item-icon" src="./assets/images/tabbar/profile.svg" alt=""></template>
+            <template v-slot:item-icon-active><img class="item-icon" src="./assets/images/tabbar/profile_active.svg" alt=""></template>
+            <template v-slot:item-text><div class="item-text">我的</div></template>
+          </tab-bar-item>
+        </tab-bar>
+    </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
+  import TabBar from "components/common/tab-bar/TabBar";
+  import TabBarItem from "components/common/tab-bar/TabBarItem";
+  export default {
   name: 'App',
   components: {
-    HelloWorld
+      TabBar,
+      TabBarItem
   }
+
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@import "assets/css/base.css";
+#tab-bar-item img{
+  margin-top: 2px;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
 }
+
 </style>
